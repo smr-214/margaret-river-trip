@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌿 Margaret River — Anniversary Escape · 11–17 July 2026</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1f5e3a">
+<meta property="og:title" content="Margaret River Anniversary Escape 🌿🐋">
+<meta property="og:description" content="A day-by-day winter itinerary — wine, forests, capes & whales · 11–17 July 2026">
+<style>
+:root{
+  --bg:#faf6ee; --paper:#fffdf9; --ink:#2b2620; --muted:#7c7368; --line:#e7ddcd;
+  --green:#1f5e3a; --green2:#2e7d52; --teal:#1f7a8c; --plum:#7d4f6d; --terra:#b5613f;
+  --gold:#c89b3c; --shadow:0 2px 10px rgba(60,45,25,0.08);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.55;}
+a{color:var(--teal);}
+
+/* HEADER */
+.hero{
+  background:linear-gradient(135deg,#16432a 0%,#1f5e3a 45%,#1f7a8c 100%);
+  color:#fff;padding:40px 20px 34px;text-align:center;position:relative;overflow:hidden;
+}
+.hero::after{content:"🌊";position:absolute;right:-10px;bottom:-18px;font-size:7rem;opacity:0.12;}
+.hero::before{content:"🍇";position:absolute;left:-6px;top:-14px;font-size:6rem;opacity:0.12;}
+.hero .kicker{letter-spacing:3px;text-transform:uppercase;font-size:0.72rem;opacity:0.85;}
+.hero h1{font-size:2.05rem;font-weight:900;letter-spacing:-0.5px;margin:6px 0 4px;position:relative;}
+.hero .dates{font-size:0.95rem;opacity:0.95;}
+.hero .sub{margin-top:10px;font-size:0.82rem;opacity:0.85;}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line);
+  display:flex;overflow-x:auto;scrollbar-width:none;box-shadow:var(--shadow);}
+.nav::-webkit-scrollbar{display:none;}
+.nav button{flex:0 0 auto;border:none;background:none;padding:12px 14px;font-size:0.82rem;font-weight:700;
+  color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;}
+.nav button.active{color:var(--green);border-bottom-color:var(--green);}
+.nav button .d{display:block;font-size:0.62rem;font-weight:600;color:var(--muted);letter-spacing:0.5px;}
+.nav button.active .d{color:var(--green2);}
+
+.wrap{max-width:840px;margin:0 auto;padding:22px 16px 60px;}
+.pane{display:none;}
+.pane.active{display:block;animation:fade .25s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+
+/* DAY HEADER */
+.dayhead{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;
+  margin-bottom:16px;box-shadow:var(--shadow);border-left:5px solid var(--green);}
+.dayhead .tag{font-size:0.7rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--green2);font-weight:700;}
+.dayhead h2{font-size:1.4rem;margin:3px 0 6px;}
+.dayhead p{color:var(--muted);font-size:0.9rem;}
+.daymeta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+.chip{font-size:0.72rem;background:#f0ead d;background:#f1ead9;border:1px solid var(--line);border-radius:20px;
+  padding:4px 10px;color:var(--ink);}
+.chip b{color:var(--green);}
+
+/* TIMELINE */
+.item{background:var(--paper);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;
+  box-shadow:var(--shadow);overflow:hidden;}
+.item.anniv{border:1px solid var(--gold);box-shadow:0 2px 14px rgba(200,155,60,0.25);}
+.item-head{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;cursor:pointer;}
+.item-ic{font-size:1.5rem;flex:0 0 auto;line-height:1.2;}
+.item-main{flex:1;min-width:0;}
+.item-time{font-size:0.68rem;text-transform:uppercase;letter-spacing:1px;color:var(--terra);font-weight:700;}
+.item-title{font-weight:700;font-size:1rem;margin:1px 0 3px;}
+.item-blurb{color:var(--muted);font-size:0.86rem;}
+.item-flags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+.flag{font-size:0.68rem;border-radius:6px;padding:2px 7px;font-weight:600;}
+.flag.drive{background:#e8f0ea;color:var(--green);}
+.flag.cost{background:#fdf0e8;color:var(--terra);}
+.flag.book{background:#fbeaf2;color:var(--plum);}
+.flag.time{background:#e7f1f3;color:var(--teal);}
+.anniv-badge{display:inline-block;background:var(--gold);color:#fff;font-size:0.62rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:1px;border-radius:5px;padding:2px 7px;margin-left:6px;vertical-align:middle;}
+.chev{flex:0 0 auto;color:var(--muted);transition:transform .2s;font-size:0.8rem;margin-top:4px;}
+.item.open .chev{transform:rotate(90deg);}
+.item-detail{display:none;padding:0 16px 16px 56px;}
+.item.open .item-detail{display:block;}
+.item-detail p{font-size:0.86rem;margin-bottom:8px;}
+.item-detail .why{background:#f4f0e6;border-left:3px solid var(--green2);border-radius:0 8px 8px 0;
+  padding:8px 12px;font-size:0.84rem;color:#4a4338;}
+.maplink{display:inline-flex;align-items:center;gap:5px;font-size:0.8rem;font-weight:600;text-decoration:none;
+  margin-top:6px;}
+
+/* GENERIC CARDS / OVERVIEW & ESSENTIALS */
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px;box-shadow:var(--shadow);}
+.card h3{font-size:1.1rem;color:var(--green);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.card h4{font-size:0.95rem;margin:12px 0 4px;color:var(--plum);}
+.card p{font-size:0.9rem;margin-bottom:9px;}
+.card ul{margin:0 0 9px 20px;font-size:0.89rem;}
+.card li{margin-bottom:5px;}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:6px;}
+.tier{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fffefb;}
+.tier .lvl{font-size:0.7rem;text-transform:uppercase;letter-spacing:1px;font-weight:800;}
+.tier.lux .lvl{color:var(--gold);} .tier.mid .lvl{color:var(--teal);} .tier.val .lvl{color:var(--green2);}
+.tier h5{font-size:0.95rem;margin:4px 0 6px;}
+.tier ul{margin-left:16px;font-size:0.82rem;}
+.geostrip{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:0.8rem;color:var(--muted);margin:8px 0;}
+.geostrip span{background:#eef3ee;border-radius:6px;padding:3px 8px;color:var(--green);font-weight:600;}
+
+/* CHECKLIST */
+.check{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:0.88rem;cursor:pointer;}
+.check:last-child{border-bottom:none;}
+.check input{margin-top:3px;width:17px;height:17px;accent-color:var(--green);flex:0 0 auto;}
+.check.done span{text-decoration:line-through;color:var(--muted);}
+.reset{font-size:0.74rem;color:var(--muted);background:none;border:1px solid var(--line);border-radius:8px;padding:5px 10px;cursor:pointer;margin-top:10px;}
+
+.callout{background:linear-gradient(135deg,#fff7e6,#fdeee0);border:1px solid #f0dcc0;border-radius:12px;padding:14px 16px;margin-bottom:14px;font-size:0.88rem;}
+.callout b{color:var(--terra);}
+.note{font-size:0.8rem;color:var(--muted);font-style:italic;}
+.foot{text-align:center;color:var(--muted);font-size:0.76rem;padding:24px 16px;}
+@media(max-width:560px){ .hero h1{font-size:1.7rem;} .item-detail{padding-left:16px;} }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="kicker">A Winter Anniversary Escape</div>
+  <h1>Margaret River</h1>
+  <div class="dates">Saturday 11 – Friday 17 July 2026 · Western Australia</div>
+  <div class="sub">Wine country · karri forests · wild capes · whale season 🐋</div>
+</div>
+
+<div class="nav" id="nav"></div>
+<div class="wrap" id="wrap"></div>
+<div class="foot" id="foot"></div>
+
+<script>
+// ════════════════════════════════════════════════
+// ITINERARY DATA
+// ════════════════════════════════════════════════
+const map = q => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q + ', Western Australia')}`;
+
+const DAYS = [
+  {
+    n:1, dow:'Saturday', date:'11 July', title:'Touchdown & the road south',
+    theme:'Land in Perth, collect the car, and ease into the southwest with a coastal lunch and the Busselton Jetty.',
+    meta:['🚗 Perth → base ≈ 2.5–3 hrs','🧳 Settle in','🍽️ Casual first dinner'],
+    items:[
+      {t:'On arrival', ic:'✈️', title:'Perth Airport → pick up rental car', blurb:'Collect your hire car and point the GPS south. The drive to the Margaret River region is a scenic ~2.5–3 hrs via the Forrest & Bussell Highways.',
+        flags:['drive:≈3 hrs to Margaret River','book:Car hire pre-booked'],
+        why:'Doing the drive in daylight is lovely — rolling farmland, then towering trees. If your flight lands late, consider a first night near Perth or Busselton and start fresh.',
+        mapq:'Perth Airport'},
+      {t:'Lunch', ic:'🌊', title:'Busselton — the Jetty & a bite', blurb:'Stretch your legs on the iconic 1.8 km Busselton Jetty (walk it or take the little train) and peek at the Underwater Observatory.',
+        flags:['time:1–2 hrs','cost:Jetty ~$4, train/obs extra'],
+        why:'The longest timber-piled jetty in the southern hemisphere — a gentle, salt-air welcome to the coast. Bunkers Beach Café at nearby Bunker Bay is a memorable lunch with ocean views.',
+        mapq:'Busselton Jetty'},
+      {t:'Late afternoon', ic:'🏡', title:'Check in to your base', blurb:'Drop the bags, light the fireplace, and breathe. (See Essentials for where to stay.)',
+        flags:[],
+        why:'Winter in Margaret River is about cosy contrasts — wild weather outside, warmth and a good glass within.'},
+      {t:'Evening', ic:'🍽️', title:'Easy first dinner in town', blurb:'Margaret River town has welcoming pubs and bistros — Settlers Tavern (live music, big wine list) or Morries for cocktails and share plates.',
+        flags:['book:Worth reserving'],
+        why:'Keep night one relaxed after travel. Tomorrow the adventure begins.',
+        mapq:'Settlers Tavern Margaret River'},
+    ]
+  },
+  {
+    n:2, dow:'Sunday', date:'12 July', title:'Capes, cliffs & wild ocean',
+    theme:'The dramatic northern capes — lighthouses, an ancient cave, osprey-topped sea stacks and a winery lunch with a view.',
+    meta:['🥾 Coastal walking','🐋 Whale-spotting chance','🍷 Winery lunch'],
+    items:[
+      {t:'Morning', ic:'🗼', title:'Cape Naturaliste Lighthouse', blurb:'Guided climb up the 1903 lighthouse with sweeping views over Geographe Bay — and, in winter, a real chance of whales offshore.',
+        flags:['drive:~40 min from MR','time:1 hr','cost:~$15 tour'],
+        why:'The lookouts here are among the best free whale-watching vantage points in the early season.',
+        mapq:'Cape Naturaliste Lighthouse'},
+      {t:'Late morning', ic:'🪨', title:'Sugarloaf Rock & a Cape-to-Cape sample', blurb:'A short, spectacular stretch of the Cape to Cape Track to Sugarloaf Rock — a granite sea stack pounded by winter swell, with nesting ospreys.',
+        flags:['time:1–1.5 hrs walk','🧥 Windproof layers'],
+        why:'Raw, photogenic and quintessentially southwest WA. The winter swell here is enormous and hypnotic.',
+        mapq:'Sugarloaf Rock Yallingup'},
+      {t:'Lunch', ic:'🍷', title:'Wills Domain or Yallingup', blurb:'Wills Domain pairs a striking hilltop restaurant with valley views and a tasting menu; or keep it casual in Dunsborough/Yallingup.',
+        flags:['book:Restaurant reservation','cost:Mid–premium'],
+        why:'A first taste of the region\'s wine-and-food artistry. One of you tastes, the other drives — the perfect arrangement.',
+        mapq:'Wills Domain Winery'},
+      {t:'Afternoon', ic:'🕳️', title:'Ngilgi Cave, Yallingup', blurb:'A semi-guided wander into a glittering ancient cave wrapped in Wadandi cultural stories.',
+        flags:['time:1 hr','cost:~$25'],
+        why:'A gentle, atmospheric intro to the area\'s famous cave country (more to come on Day 4).',
+        mapq:'Ngilgi Cave'},
+      {t:'Evening', ic:'🍺', title:'Yallingup sunset & dinner', blurb:'Sundowner at historic Caves House, or back to base for a cosy night in.',
+        flags:[],
+        why:'Short winter days mean early, golden light over the surf — ideal for a sunset before dinner.',
+        mapq:'Caves House Hotel Yallingup'},
+    ]
+  },
+  {
+    n:3, dow:'Monday', date:'13 July', title:'The heart of wine country',
+    theme:'A slow, indulgent day through Wilyabrup — founding wineries, biodynamic gardens, chocolate, cheese and a long lunch.',
+    meta:['🍇 Cellar doors','🧀 Gourmet trail','🚗 Short hops'],
+    items:[
+      {t:'Morning', ic:'🍇', title:'Vasse Felix — the founding estate', blurb:'The region\'s first winery (1967): elegant tastings, an art gallery, and one of WA\'s best winery restaurants.',
+        flags:['time:1.5 hrs','book:Tasting/lunch'],
+        why:'Start at the source of Margaret River wine. The Cabernet and Chardonnay here are benchmarks.',
+        mapq:'Vasse Felix'},
+      {t:'Late morning', ic:'🌿', title:'Cullen Wines — biodynamic pioneer', blurb:'A carbon-positive, biodynamic estate with a beautiful kitchen garden that feeds its restaurant.',
+        flags:['time:1 hr','cost:Tasting ~$15'],
+        why:'Even for a light drinker, the philosophy and garden make this a standout stop.',
+        mapq:'Cullen Wines'},
+      {t:'Lunch', ic:'🍫', title:'Gourmet trail: chocolate, cheese & produce', blurb:'Margaret River Chocolate Company (free tastings), The Providore (gourmet larder + olive grove), and the Margaret River Dairy for cheese.',
+        flags:['cost:Free–low','🚗 5–10 min apart'],
+        why:'This is where the non-drinking driver wins big — endless tastings of chocolate, nougat, cheese and olive oil.',
+        mapq:'Margaret River Chocolate Company'},
+      {t:'Afternoon', ic:'🥂', title:'One more cellar door', blurb:'Pierro, Woodlands or Fraser Gallop for a final, unhurried tasting — or a fireside coffee.',
+        flags:['🚗 Designated driver'],
+        why:'Pace it. A packed week still needs one languid wine-country afternoon.',
+        mapq:'Pierro Margaret River'},
+      {t:'Evening', ic:'🍽️', title:'Dinner in town', blurb:'Miki\'s Open Kitchen (refined Japanese, tempura counter) is a local favourite — or Arimia\'s rustic estate dining.',
+        flags:['book:Reserve ahead'],
+        why:'Miki\'s books out — lock it in early. A genuine highlight meal.',
+        mapq:"Miki's Open Kitchen Margaret River"},
+    ]
+  },
+  {
+    n:4, dow:'Tuesday', date:'14 July', title:'Caves & the karri forest',
+    theme:'Underground wonders and cathedral-like karri forest — the wild, green heart of the region.',
+    meta:['🕳️ Show caves','🌲 Karri forest','📷 Big scenery'],
+    items:[
+      {t:'Morning', ic:'🦴', title:'Mammoth Cave (self-guided)', blurb:'An easy, self-paced audio tour through a vast chamber holding ancient megafauna fossils.',
+        flags:['time:1 hr','cost:~$25'],
+        why:'Self-guided means you set the pace — atmospheric and uncrowded in winter.',
+        mapq:'Mammoth Cave Margaret River'},
+      {t:'Late morning', ic:'💧', title:'Lake Cave & CaveWorks', blurb:'The most beautiful of the caves — a suspended table of crystal over a still, reflective lake. Guided only.',
+        flags:['time:1 hr','book:Guided tour times'],
+        why:'The mirror-like lake and delicate formations are unforgettable. Combo tickets save money across caves.',
+        mapq:'Lake Cave Margaret River'},
+      {t:'Lunch', ic:'🧺', title:'Forest picnic or southern bite', blurb:'Grab provisions from the gourmet trail and picnic, or eat near Boranup.',
+        flags:['cost:Flexible'],
+        why:'Lunch among the trees is pure southwest magic.'},
+      {t:'Afternoon', ic:'🌲', title:'Boranup Karri Forest drive & lookout', blurb:'Drive the unsealed Boranup Drive beneath soaring pale-trunked karri trees to the Boranup Lookout over the coast.',
+        flags:['drive:Scenic loop','📷 Stop often'],
+        why:'These karri are among the tallest trees on earth — winter mist between the trunks is spellbinding.',
+        mapq:'Boranup Forest Lookout'},
+      {t:'Late afternoon', ic:'🏖️', title:'Hamelin Bay', blurb:'A dazzling white-sand bay (famous for the stingrays that sometimes glide into the shallows).',
+        flags:['drive:~15 min'],
+        why:'Even in winter the turquoise water against white sand is striking — bring a flask of something hot.',
+        mapq:'Hamelin Bay'},
+      {t:'Evening', ic:'🍸', title:'Giniversity gin tasting', blurb:'Back in town, Margaret River Distilling Co\'s "Giniversity" pours small-batch gins.',
+        flags:['book:Tastings'],
+        why:'A fun, low-key evening — and the driver can take a mini bottle home instead.',
+        mapq:'Margaret River Distilling Co'},
+    ]
+  },
+  {
+    n:5, dow:'Wednesday', date:'15 July', title:'Augusta & the whales', anniv:true,
+    theme:'Your anniversary centrepiece: the lighthouse where two oceans meet, a winter whale cruise, and a special dinner.',
+    meta:['🐋 Whale cruise','🗼 Cape Leeuwin','💛 Anniversary'],
+    items:[
+      {t:'Morning', ic:'🗼', title:'Cape Leeuwin Lighthouse, Augusta', blurb:'Australia\'s tallest mainland lighthouse, standing where the Indian and Southern Oceans collide.',
+        flags:['drive:~45 min south','time:1 hr','cost:~$25 tour'],
+        why:'A genuinely epic spot — two oceans meeting, wind and spray and history. Wrap up warm.',
+        mapq:'Cape Leeuwin Lighthouse'},
+      {t:'Midday', ic:'🐋', title:'Augusta whale-watching cruise', blurb:'Augusta is WA\'s winter whale capital — humpbacks and southern right whales (often mothers with calves) gather in Flinders Bay June–August.',
+        flags:['time:~2.5 hrs','book:Book well ahead','cost:~$90 pp'],
+        why:'THE seasonal headline. July sits right in the window — few places on earth offer winter whale watching this reliable. (Naturaliste Charters sail from Augusta.)',
+        mapq:'Augusta Boat Harbour'},
+      {t:'Afternoon', ic:'💎', title:'Jewel Cave, Augusta', blurb:'The largest show cave open in WA — towering chambers and one of the longest straw stalactites found.',
+        flags:['time:1 hr','cost:~$25'],
+        why:'A grand finale to your cave-hopping, right by Augusta.',
+        mapq:'Jewel Cave Augusta'},
+      {t:'Evening', ic:'🥂', title:'Anniversary dinner', anniv:true, blurb:'A standout dinner to mark the occasion — Cape Lodge\'s acclaimed restaurant, Leeuwin Estate\'s fine dining, or Arimia\'s estate table.',
+        flags:['book:Reserve early','cost:Premium — worth it'],
+        why:'Build the night around the two of you. Cape Lodge is the region\'s most romantic table (and a dreamy place to stay the night — see Essentials).',
+        mapq:'Cape Lodge Margaret River'},
+    ]
+  },
+  {
+    n:6, dow:'Thursday', date:'16 July', title:'Surf coast, town & indulgence',
+    theme:'Wild winter surf, a beachfront breakfast, the town\'s cafés and boutiques, and a couples\' spa treat.',
+    meta:['🏄 Surf watching','☕ Town time','💆 Spa'],
+    items:[
+      {t:'Morning', ic:'🏄', title:'Surfers Point, Prevelly', blurb:'Watch winter swell roll into the home of the Margaret River Pro from the clifftop — raw power, few crowds.',
+        flags:['drive:~15 min'],
+        why:'July delivers the biggest, cleanest swells of the year. You don\'t need to surf to be awed.',
+        mapq:'Surfers Point Prevelly'},
+      {t:'Breakfast', ic:'☕', title:'Gnarabup / White Elephant Café', blurb:'Beachfront breakfast at the White Elephant, toes almost in the sand.',
+        flags:['cost:Casual'],
+        why:'One of the most-loved breakfast spots in the region — get there early.',
+        mapq:'White Elephant Cafe Gnarabup'},
+      {t:'Late morning', ic:'🛍️', title:'Margaret River town', blurb:'Yahava for coffee, the Margaret River Bakery, and a browse of local makers and bookshops.',
+        flags:['🚶 Walkable'],
+        why:'A relaxed pocket of town time between the big-ticket days.',
+        mapq:'Margaret River Main Street'},
+      {t:'Afternoon', ic:'💆', title:'Couples\' spa treatment', anniv:true, blurb:'A winter highlight — a side-by-side treatment (Injidup Spa Retreat, Empire Spa, or an in-town day spa).',
+        flags:['book:Book the slot','cost:Mid–premium'],
+        why:'The ideal way to slow a packed week — and a lovely anniversary touch.',
+        mapq:'Injidup Spa Retreat'},
+      {t:'Evening', ic:'🍻', title:'Brewery or farewell dinner', blurb:'Cheeky Monkey or Black Brewing Co for a relaxed last evening, or a final favourite restaurant.',
+        flags:['cost:Casual–mid'],
+        why:'Toast the trip. The driver can grab a tasting paddle to take away.',
+        mapq:'Black Brewing Co Margaret River'},
+    ]
+  },
+  {
+    n:7, dow:'Friday', date:'17 July', title:'Slow morning & the drive back',
+    theme:'A gentle last morning, a final produce stop, and the scenic run back to Perth for your flight.',
+    meta:['🥐 Slow start','🚗 ≈3 hrs to Perth','✈️ Departure'],
+    items:[
+      {t:'Morning', ic:'🥐', title:'Unhurried breakfast & last stops', blurb:'A lazy breakfast, then last-minute treasures — Bettenay\'s nougat, Vasse Virgin olive oil, a final cellar door.',
+        flags:['cost:Souvenirs'],
+        why:'Stock up on edible souvenirs to stretch the trip out at home.',
+        mapq:'Bettenay\'s Margaret River'},
+      {t:'Midday', ic:'🚗', title:'Drive back to Perth', blurb:'The ~3 hr return. With time to spare, detour to Mandurah or Fremantle for a late lunch.',
+        flags:['drive:≈3 hrs','time:Leave a buffer'],
+        why:'Allow generous time before your flight — plus fuel-up and car return.',
+        mapq:'Fremantle'},
+      {t:'Evening', ic:'✈️', title:'Return car & fly home', blurb:'Drop the car at Perth Airport and check in.',
+        flags:['book:Mind the flight time'],
+        why:'Tell me your exact flight times and I\'ll tighten Days 1 & 7 around them.',
+        mapq:'Perth Airport'},
+    ]
+  },
+];
+
+// ════════════════════════════════════════════════
+// OVERVIEW & ESSENTIALS CONTENT
+// ════════════════════════════════════════════════
+function overviewHTML(){
+  return `
+  <div class="card">
+    <h3>🌿 Your week at a glance</h3>
+    <p>Seven days exploring Australia's southwest corner — a compact region where world-class wineries, ancient cave systems, towering karri forests and wild surf coast all sit within a short drive of each other. You've chosen a <b>packed pace</b> leaning into <b>wine &amp; food, nature &amp; forests, and wildlife &amp; whales</b>, on a <b>mixed budget</b> with a couple of anniversary splurges.</p>
+    <div class="geostrip">
+      <span>Busselton</span>→<span>Dunsborough / Yallingup</span>→<span>Wilyabrup (wine)</span>→<span>Margaret River town</span>→<span>Augusta (whales)</span>
+    </div>
+    <p class="note">The region runs roughly north–south over ~75 km — about 1 hr 15 end to end. Nothing on this itinerary is more than ~45 min from a central base.</p>
+  </div>
+
+  <div class="callout">
+    🐋 <b>Why July is special:</b> it's mid-winter here — cool, moody and uncrowded, with cosy fireplaces and the year's biggest surf. Crucially, <b>Augusta is in peak whale-watching season</b> (humpbacks &amp; southern right whales), and it's <b>WA truffle season</b>, so watch for truffle menus at the better restaurants.</p>
+  </div>
+
+  <div class="card">
+    <h3>🛏️ Where to stay</h3>
+    <p>You're open to suggestions. A simple plan: base centrally for most nights, with a romantic <b>anniversary splurge</b> for a night or two. The whole region is close, so one base works well.</p>
+    <div class="tiers">
+      <div class="tier lux"><div class="lvl">Anniversary splurge</div><h5>Cape Lodge / Injidup Spa Retreat</h5><ul><li>Cape Lodge — lake views, top restaurant, the region's most romantic stay</li><li>Injidup Spa Retreat — adults-only ocean-view villas with plunge pools</li><li>Pullman Bunker Bay Resort — beachfront</li></ul></div>
+      <div class="tier mid"><div class="lvl">Comfortable base</div><h5>Margaret River / Wilyabrup</h5><ul><li>Burnside Organic Farm — private bungalows on a farm (lovely)</li><li>The Sebel / Stay Margaret River</li><li>Forest Rise chalets — fireplaces in the trees</li></ul></div>
+      <div class="tier val"><div class="lvl">Value</div><h5>Cottages & town</h5><ul><li>Self-contained cottages around Cowaramup</li><li>Margaret River Hotel / motels in town</li><li>Holiday-home rentals (kitchen = picnic supplies)</li></ul></div>
+    </div>
+    <p class="note">Recommended: ~4 nights at a comfortable central base + a 1–2 night anniversary splurge (Cape Lodge or Injidup). Want me to lock a specific plan? Tell me your nightly budget and I'll pick.</p>
+  </div>
+
+  <div class="card">
+    <h3>🗺️ The shape of the trip</h3>
+    <ul>
+      <li><b>Day 1</b> — Arrive Perth, drive south, Busselton Jetty</li>
+      <li><b>Day 2</b> — Northern capes, cliffs &amp; Ngilgi Cave</li>
+      <li><b>Day 3</b> — Wine country &amp; gourmet trail (Wilyabrup)</li>
+      <li><b>Day 4</b> — Caves &amp; karri forest</li>
+      <li><b>Day 5</b> — Augusta, Cape Leeuwin &amp; whales 💛 <i>anniversary</i></li>
+      <li><b>Day 6</b> — Surf coast, town &amp; spa</li>
+      <li><b>Day 7</b> — Slow morning, drive back to Perth</li>
+    </ul>
+    <p class="note">Tap any day in the menu above to expand its full plan. Tap an activity card to reveal tips &amp; a map link.</p>
+  </div>`;
+}
+
+function essentialsHTML(){
+  return `
+  <div class="card">
+    <h3>🧭 Getting there & around</h3>
+    <ul>
+      <li><b>Flights:</b> Singapore → Perth is ~5 hrs. <span class="note">Send me your exact 11 &amp; 17 July times and I'll fine-tune Days 1 &amp; 7.</span></li>
+      <li><b>Car:</b> self-drive from Perth Airport — essential here. Book an automatic; consider full insurance for gravel roads (e.g. Boranup Drive).</li>
+      <li><b>Drive:</b> Perth → Margaret River ≈ 2.5–3 hrs. Within the region, hops are 10–45 min.</li>
+      <li><b>Designated driver:</b> with one light drinker, you're set — the non-drinker drives on tasting days while the other enjoys the cellar doors.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>🧥 Winter weather & what to pack</h3>
+    <p>Expect <b>cool, changeable days (~8–17°C)</b>, showers, and a brisk coastal wind — plus the year's most dramatic surf. Dress in layers.</p>
+    <div id="packing"></div>
+    <button class="reset" data-reset="packing">Reset packing list</button>
+  </div>
+
+  <div class="card">
+    <h3>📞 Book these ahead</h3>
+    <p class="note">Winter is quieter, but the best tables, the whale cruise and guided caves still fill — especially around your anniversary night.</p>
+    <div id="booking"></div>
+    <button class="reset" data-reset="booking">Reset booking list</button>
+  </div>
+
+  <div class="card">
+    <h3>💸 Rough budget (AUD, per couple)</h3>
+    <p class="note">Indicative only — "mixed" budget with a couple of splurges. 6 nights / 7 days.</p>
+    <ul>
+      <li><b>Car hire + fuel:</b> ~$450–650</li>
+      <li><b>Accommodation:</b> ~$1,300–2,600 (value base + 1–2 splurge nights)</li>
+      <li><b>Food &amp; wine:</b> ~$900–1,500 (mix of cafés, cellar doors &amp; two special dinners)</li>
+      <li><b>Activities</b> (whale cruise, caves, lighthouses, spa): ~$500–800</li>
+      <li><b>Indicative total:</b> ~$3,200–5,500 + flights</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>💡 Good to know</h3>
+    <ul>
+      <li>Currency is AUD; tap-to-pay is near-universal. Tipping is not expected.</li>
+      <li>Mobile coverage drops out in forest &amp; cave areas — download maps offline.</li>
+      <li>Whale cruises run weather-dependent; build a flexible backup (caves/cellar doors) into Day 5.</li>
+      <li>Seasickness tablets for the cruise; windproof + waterproof jacket for capes.</li>
+      <li>Daylight is short in July (~7am–5:30pm) — front-load outdoor stops.</li>
+    </ul>
+  </div>`;
+}
+
+const PACKING = [
+  'Waterproof / windproof jacket','Warm layers (fleece, jumper)','Long trousers & a couple of warmer tops',
+  'Comfortable waterproof walking shoes','Smart-casual outfit for anniversary dinner','Beanie, scarf & gloves for the capes',
+  'Swimwear (spa / brave beach moment)','Sunglasses (winter glare is real)','Reusable water bottle & travel mug',
+  'Seasickness tablets for the whale cruise','Daypack for walks','Camera / phone + car charger',
+  'Insulated flask for hot drinks on the coast','Power adapter (AU Type I)','Cooler bag for cheese, chocolate & wine souvenirs'
+];
+const BOOKING = [
+  'Rental car (automatic, Perth Airport)','Accommodation — incl. anniversary splurge night','Augusta whale-watching cruise (Day 5)',
+  'Anniversary dinner (Cape Lodge / Leeuwin / Arimia)','Miki\'s Open Kitchen or other popular dinners','Guided cave tours (Lake & Jewel) — combo ticket',
+  'Couples\' spa treatment (Day 6)','Winery lunch reservations (Vasse Felix / Wills Domain)'
+];
+
+// ════════════════════════════════════════════════
+// RENDER
+// ════════════════════════════════════════════════
+const wrap = document.getElementById('nav');
+const TABS = [{id:'overview',label:'Overview',d:'Start here'},
+  ...DAYS.map(d=>({id:'day'+d.n,label:'Day '+d.n,d:d.date})),
+  {id:'essentials',label:'Essentials',d:'Pack & book'}];
+
+document.getElementById('nav').innerHTML = TABS.map((t,i)=>
+  `<button data-tab="${t.id}" class="${i===0?'active':''}"><span>${t.label}</span><span class="d">${t.d}</span></button>`).join('');
+
+function paneHTML(id){
+  if(id==='overview') return overviewHTML();
+  if(id==='essentials') return essentialsHTML();
+  const d = DAYS.find(x=>'day'+x.n===id);
+  return `
+    <div class="dayhead">
+      <div class="tag">Day ${d.n} · ${d.dow} ${d.date}${d.anniv?' · 💛 Anniversary':''}</div>
+      <h2>${d.title}</h2>
+      <p>${d.theme}</p>
+      <div class="daymeta">${d.meta.map(m=>`<span class="chip">${m}</span>`).join('')}</div>
+    </div>
+    ${d.items.map((it,idx)=>`
+      <div class="item ${it.anniv?'anniv':''}" data-item="${d.n}-${idx}">
+        <div class="item-head">
+          <div class="item-ic">${it.ic}</div>
+          <div class="item-main">
+            <div class="item-time">${it.t}</div>
+            <div class="item-title">${it.title}${it.anniv?'<span class="anniv-badge">Anniversary</span>':''}</div>
+            <div class="item-blurb">${it.blurb}</div>
+            ${it.flags&&it.flags.length?`<div class="item-flags">${it.flags.map(f=>{const[k,...r]=f.split(':');const v=r.join(':');return v?`<span class="flag ${k}">${v}</span>`:`<span class="flag time">${k}</span>`;}).join('')}</div>`:''}
+          </div>
+          <div class="chev">▶</div>
+        </div>
+        <div class="item-detail">
+          <div class="why">💡 ${it.why}</div>
+          ${it.mapq?`<a class="maplink" href="${map(it.mapq)}" target="_blank" rel="noopener">📍 Open in Google Maps →</a>`:''}
+        </div>
+      </div>`).join('')}`;
+}
+
+function show(id){
+  document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));
+  document.getElementById('wrap').innerHTML = `<div class="pane active">${paneHTML(id)}</div>`;
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(id==='essentials'){ renderChecklist('packing',PACKING); renderChecklist('booking',BOOKING); }
+}
+
+// expand/collapse activity cards
+document.getElementById('wrap').addEventListener('click', e=>{
+  const head = e.target.closest('.item-head');
+  if(head && !e.target.closest('a')){ head.parentElement.classList.toggle('open'); }
+  const reset = e.target.closest('[data-reset]');
+  if(reset){ const key=reset.dataset.reset; localStorage.removeItem('mr-'+key); show('essentials'); }
+});
+
+// checklists with localStorage
+function renderChecklist(key, items){
+  const saved = JSON.parse(localStorage.getItem('mr-'+key) || '[]');
+  const el = document.getElementById(key);
+  el.innerHTML = items.map((t,i)=>`
+    <label class="check ${saved.includes(i)?'done':''}">
+      <input type="checkbox" data-key="${key}" data-i="${i}" ${saved.includes(i)?'checked':''}>
+      <span>${t}</span>
+    </label>`).join('');
+  el.querySelectorAll('input').forEach(inp=>inp.addEventListener('change',()=>{
+    const cur = JSON.parse(localStorage.getItem('mr-'+key) || '[]');
+    const i = +inp.dataset.i;
+    const next = inp.checked ? [...new Set([...cur,i])] : cur.filter(x=>x!==i);
+    localStorage.setItem('mr-'+key, JSON.stringify(next));
+    inp.closest('.check').classList.toggle('done',inp.checked);
+  }));
+}
+
+document.getElementById('nav').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(b) show(b.dataset.tab);
+});
+
+document.getElementById('foot').innerHTML = 'Crafted for your Margaret River anniversary · 11–17 July 2026 · tap days to explore, activities to expand';
+show('overview');
+</script>
+</body>
+</html>
