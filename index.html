@@ -144,9 +144,10 @@ const DAYS = [
         flags:['time:1–1.5 hrs','🚶 ~3.6 km return','cost:Jetty ~$4'],
         why:'A brisk, salt-air leg-stretch is the perfect antidote to a long flight. Bunkers Beach Café at nearby Bunker Bay is a lovely ocean-view lunch.',
         mapq:'Busselton Jetty'},
-      {t:'Late afternoon', ic:'🏡', title:'Check in to your base', blurb:'Drop the bags, light the fireplace, and breathe. (See Essentials for where to stay.)',
+      {t:'Late afternoon', ic:'🏡', title:'Check in to your Airbnb', blurb:'Unit 22, 5 Station Road, Margaret River — drop the bags and breathe.',
         flags:[],
-        why:'Winter in Margaret River is about cosy contrasts — wild weather outside, warmth within.'},
+        why:'Winter in Margaret River is about cosy contrasts — wild weather outside, warmth within.',
+        mapq:'Unit 22, 5 Station Road, Margaret River WA 6285'},
       {t:'Evening', ic:'🍽️', title:'Easy first dinner in town', blurb:'Margaret River town has welcoming pubs and bistros — Settlers Tavern (live music) or Morries for share plates.',
         flags:['book:Worth reserving'],
         why:'Keep night one relaxed after travel. The active days start tomorrow.',
@@ -256,7 +257,7 @@ const DAYS = [
         mapq:'Augusta foreshore'},
       {t:'Evening', ic:'🥂', title:'Celebration dinner', blurb:'A standout dinner to mark the trip — Cape Lodge\'s acclaimed restaurant, Leeuwin Estate\'s fine dining, or Arimia\'s estate table.',
         flags:['book:Reserve early','cost:Premium — worth it'],
-        why:'Build the night around the group. Cape Lodge has one of the region\'s best tables (and a dreamy place to stay the night — see Essentials).',
+        why:'Build the night around the group. Cape Lodge has one of the region\'s best tables.',
         mapq:'Cape Lodge Margaret River'},
     ]
   },
@@ -332,13 +333,8 @@ function overviewHTML(){
 
   <div class="card">
     <h3>🛏️ Where to stay</h3>
-    <p>You're open to suggestions. A simple plan: base centrally for most nights, with a <b>splurge</b> for a night or two. The whole region is close, so one base works well.</p>
-    <div class="tiers">
-      <div class="tier lux"><div class="lvl">Splurge stay</div><h5>Cape Lodge / Injidup Spa Retreat</h5><ul><li>Cape Lodge — lake views, top restaurant, the region's best stay</li><li>Injidup Spa Retreat — adults-only ocean-view villas with plunge pools</li><li>Pullman Bunker Bay Resort — beachfront</li></ul></div>
-      <div class="tier mid"><div class="lvl">Comfortable base</div><h5>Margaret River / Wilyabrup</h5><ul><li>Burnside Organic Farm — private bungalows on a farm (lovely)</li><li>The Sebel / Stay Margaret River</li><li>Forest Rise chalets — fireplaces in the trees</li></ul></div>
-      <div class="tier val"><div class="lvl">Value</div><h5>Cottages & town</h5><ul><li>Self-contained cottages around Cowaramup</li><li>Margaret River Hotel / motels in town</li><li>Holiday-home rentals (kitchen = picnic supplies)</li></ul></div>
-    </div>
-    <p class="note">Recommended: ~4 nights at a comfortable central base + a 1–2 night splurge (Cape Lodge or Injidup) — pick something with room for three. Want me to lock a specific plan? Tell me your nightly budget and I'll pick.</p>
+    <p><b>Booked:</b> Airbnb — Unit 22, 5 Station Road, Margaret River, WA 6285, Australia. Central and an easy base for the whole week — everything on this itinerary is within a short drive.</p>
+    <p class="note"><a class="maplink" href="${map('Unit 22, 5 Station Road, Margaret River WA 6285')}" target="_blank" rel="noopener">📍 Open in Google Maps →</a></p>
   </div>
 
   <div class="card">
@@ -384,13 +380,13 @@ function essentialsHTML(){
 
   <div class="card">
     <h3>💸 Rough budget (AUD, total trip)</h3>
-    <p class="note">Indicative only — "mixed" budget with a couple of splurges. 6 nights / 7 days. Figures below assume two sharing costs; adjust once accommodation is booked for three.</p>
+    <p class="note">Indicative only — "mixed" budget with a couple of splurges. 6 nights / 7 days, split three ways.</p>
     <ul>
       <li><b>Car hire + fuel:</b> ~$450–650</li>
-      <li><b>Accommodation:</b> ~$1,300–2,600 (value base + 1–2 splurge nights)</li>
+      <li><b>Accommodation:</b> Airbnb booked — add your actual total here</li>
       <li><b>Food &amp; wine:</b> ~$900–1,500 (mix of cafés, cellar doors &amp; two special dinners)</li>
       <li><b>Activities</b> (whale cruise, caves, lighthouses, spa): ~$500–800</li>
-      <li><b>Indicative total:</b> ~$3,200–5,500 + flights</li>
+      <li><b>Indicative total:</b> ~$1,850–2,950 + flights + accommodation</li>
     </ul>
   </div>
 
@@ -414,7 +410,7 @@ const PACKING = [
   'Insulated flask for hot drinks on the coast','Power adapter (AU Type I)','Cooler bag for cheese, chocolate & wine souvenirs'
 ];
 const BOOKING = [
-  'Rental car (automatic, Perth Airport)','Accommodation — incl. splurge night','Augusta whale-watching cruise (Day 5)',
+  'Rental car (automatic, Perth Airport)','Augusta whale-watching cruise (Day 5)',
   'Celebration dinner (Cape Lodge / Leeuwin / Arimia)','Miki\'s Open Kitchen (Day 3 — books out)','Lake Cave guided tour (Day 4)',
   'Bike hire for the Wadandi Track (Day 3)','Surf lesson or kayak hire (Day 6)','Spa treatment (Day 6)','Vasse Felix winery lunch (Day 3)'
 ];
