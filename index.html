@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🌿 Margaret River — Anniversary Escape · 11–17 July 2026</title>
+<title>🌿 Perth Pals in Margaret River · 11–17 July 2026</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#1f5e3a">
-<meta property="og:title" content="Margaret River Anniversary Escape 🌿🐋">
+<meta property="og:title" content="Perth Pals in Margaret River 🌿🐋">
 <meta property="og:description" content="A day-by-day winter itinerary — wine, forests, capes & whales · 11–17 July 2026">
 <style>
 :root{
@@ -59,7 +59,6 @@ a{color:var(--teal);}
 /* TIMELINE */
 .item{background:var(--paper);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;
   box-shadow:var(--shadow);overflow:hidden;}
-.item.anniv{border:1px solid var(--gold);box-shadow:0 2px 14px rgba(200,155,60,0.25);}
 .item-head{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;cursor:pointer;}
 .item-ic{font-size:1.5rem;flex:0 0 auto;line-height:1.2;}
 .item-main{flex:1;min-width:0;}
@@ -72,8 +71,6 @@ a{color:var(--teal);}
 .flag.cost{background:#fdf0e8;color:var(--terra);}
 .flag.book{background:#fbeaf2;color:var(--plum);}
 .flag.time{background:#e7f1f3;color:var(--teal);}
-.anniv-badge{display:inline-block;background:var(--gold);color:#fff;font-size:0.62rem;font-weight:800;
-  text-transform:uppercase;letter-spacing:1px;border-radius:5px;padding:2px 7px;margin-left:6px;vertical-align:middle;}
 .chev{flex:0 0 auto;color:var(--muted);transition:transform .2s;font-size:0.8rem;margin-top:4px;}
 .item.open .chev{transform:rotate(90deg);}
 .item-detail{display:none;padding:0 16px 16px 56px;}
@@ -117,8 +114,8 @@ a{color:var(--teal);}
 <body>
 
 <div class="hero">
-  <div class="kicker">A Winter Anniversary Escape</div>
-  <h1>Margaret River</h1>
+  <div class="kicker">A Winter Escape With Friends</div>
+  <h1>Perth Pals in Margaret River</h1>
   <div class="dates">Saturday 11 – Friday 17 July 2026 · Western Australia</div>
   <div class="sub">Wine country · karri forests · wild capes · whale season 🐋</div>
 </div>
@@ -196,7 +193,7 @@ const DAYS = [
         flags:['time:1–2 hrs','🚵 Trails for all levels'],
         why:'A swap for the rail-trail if you\'d rather get the heart rate up in the forest.',
         mapq:'Compartment 10 mountain bike trails Margaret River'},
-      {t:'Lunch', ic:'🍷', title:'One relaxed winery lunch — Vasse Felix', blurb:'The region\'s founding estate (1967): an art gallery and one of WA\'s best winery restaurants. One of you tastes, the other drives.',
+      {t:'Lunch', ic:'🍷', title:'One relaxed winery lunch — Vasse Felix', blurb:'The region\'s founding estate (1967): an art gallery and one of WA\'s best winery restaurants. Rotate who drives so everyone gets a turn to taste.',
         flags:['time:1.5 hrs','book:Reserve','cost:Mid–premium'],
         why:'A single, unhurried cellar-door lunch — the wine highlight of the trip without a full day of tastings.',
         mapq:'Vasse Felix'},
@@ -241,9 +238,9 @@ const DAYS = [
     ]
   },
   {
-    n:5, dow:'Wednesday', date:'15 July', title:'Augusta & the whales', anniv:true,
-    theme:'Your anniversary centrepiece: the lighthouse where two oceans meet, a winter whale cruise, a coastal walk, and a special dinner.',
-    meta:['🐋 Whale cruise','🗼 Cape Leeuwin','💛 Anniversary'],
+    n:5, dow:'Wednesday', date:'15 July', title:'Augusta & the whales',
+    theme:'The trip\'s centrepiece: the lighthouse where two oceans meet, a winter whale cruise, a coastal walk, and a special dinner.',
+    meta:['🐋 Whale cruise','🗼 Cape Leeuwin','🥂 Big dinner'],
     items:[
       {t:'Morning', ic:'🗼', title:'Cape Leeuwin Lighthouse, Augusta', blurb:'Australia\'s tallest mainland lighthouse, where the Indian and Southern Oceans collide — climb it and walk the windswept grounds and old waterwheel.',
         flags:['drive:~45 min south','time:1–1.5 hrs','cost:~$25 tour'],
@@ -257,16 +254,16 @@ const DAYS = [
         flags:['time:45 min','🚶 Gentle'],
         why:'A calm, scenic breather after the cruise — and a chance to spot more wildlife.',
         mapq:'Augusta foreshore'},
-      {t:'Evening', ic:'🥂', title:'Anniversary dinner', anniv:true, blurb:'A standout dinner to mark the occasion — Cape Lodge\'s acclaimed restaurant, Leeuwin Estate\'s fine dining, or Arimia\'s estate table.',
+      {t:'Evening', ic:'🥂', title:'Celebration dinner', blurb:'A standout dinner to mark the trip — Cape Lodge\'s acclaimed restaurant, Leeuwin Estate\'s fine dining, or Arimia\'s estate table.',
         flags:['book:Reserve early','cost:Premium — worth it'],
-        why:'Build the night around the two of you. Cape Lodge is the region\'s most romantic table (and a dreamy place to stay the night — see Essentials).',
+        why:'Build the night around the group. Cape Lodge has one of the region\'s best tables (and a dreamy place to stay the night — see Essentials).',
         mapq:'Cape Lodge Margaret River'},
     ]
   },
   {
     n:6, dow:'Thursday', date:'16 July', title:'Surf, river & spa',
-    theme:'An active morning on the water — surf or kayak — a coastal walk, then a well-earned couples\' spa to celebrate.',
-    meta:['🏄 Surf or kayak','🥾 Rivermouth walk','💆 Couples spa'],
+    theme:'An active morning on the water — surf or kayak — a coastal walk, then a well-earned spa afternoon.',
+    meta:['🏄 Surf or kayak','🥾 Rivermouth walk','💆 Spa afternoon'],
     items:[
       {t:'Breakfast', ic:'☕', title:'Beach breakfast — White Elephant, Gnarabup', blurb:'Beachfront breakfast with toes almost in the sand before a morning on the water.',
         flags:['cost:Casual','📍 Get there early'],
@@ -284,9 +281,9 @@ const DAYS = [
         flags:['time:1 hr','🥾 ~4 km'],
         why:'A dramatic meeting of river, beach and ocean — and a chance to dry off in the wind.',
         mapq:'Margaret River Rivermouth'},
-      {t:'Afternoon', ic:'💆', title:'Couples\' spa treatment', anniv:true, blurb:'A side-by-side treatment to celebrate (Injidup Spa Retreat, Empire Spa, or an in-town day spa).',
+      {t:'Afternoon', ic:'💆', title:'Spa treatment', blurb:'A relaxing treatment to celebrate the trip (Injidup Spa Retreat, Empire Spa, or an in-town day spa).',
         flags:['book:Book the slot','cost:Mid–premium'],
-        why:'The perfect way to soothe active legs — and a lovely anniversary touch.',
+        why:'The perfect way to soothe active legs after a big week outdoors.',
         mapq:'Injidup Spa Retreat'},
       {t:'Evening', ic:'🍻', title:'Farewell dinner or brewery', blurb:'Cheeky Monkey or Black Brewing Co for a relaxed last evening, or a final favourite restaurant.',
         flags:['cost:Casual–mid'],
@@ -322,7 +319,7 @@ function overviewHTML(){
   return `
   <div class="card">
     <h3>🌿 Your week at a glance</h3>
-    <p>Seven days exploring Australia's southwest corner — a compact region where wild surf coast, towering karri forests, world-class wineries and the winter whales all sit within a short drive of each other. The plan is <b>active &amp; outdoorsy</b> — coastal hikes, a forest cycle, kayaking or surf, and a whale cruise — with <b>wine &amp; food kept to relaxed lunches and evenings</b>, on a <b>mixed budget</b> with a couple of anniversary splurges.</p>
+    <p>Seven days exploring Australia's southwest corner — a compact region where wild surf coast, towering karri forests, world-class wineries and the winter whales all sit within a short drive of each other. The plan is <b>active &amp; outdoorsy</b> — coastal hikes, a forest cycle, kayaking or surf, and a whale cruise — with <b>wine &amp; food kept to relaxed lunches and evenings</b>, on a <b>mixed budget</b> with a couple of splurges along the way.</p>
     <div class="geostrip">
       <span>Busselton</span>→<span>Dunsborough / Yallingup</span>→<span>Wilyabrup (wine)</span>→<span>Margaret River town</span>→<span>Augusta (whales)</span>
     </div>
@@ -335,13 +332,13 @@ function overviewHTML(){
 
   <div class="card">
     <h3>🛏️ Where to stay</h3>
-    <p>You're open to suggestions. A simple plan: base centrally for most nights, with a romantic <b>anniversary splurge</b> for a night or two. The whole region is close, so one base works well.</p>
+    <p>You're open to suggestions. A simple plan: base centrally for most nights, with a <b>splurge</b> for a night or two. The whole region is close, so one base works well.</p>
     <div class="tiers">
-      <div class="tier lux"><div class="lvl">Anniversary splurge</div><h5>Cape Lodge / Injidup Spa Retreat</h5><ul><li>Cape Lodge — lake views, top restaurant, the region's most romantic stay</li><li>Injidup Spa Retreat — adults-only ocean-view villas with plunge pools</li><li>Pullman Bunker Bay Resort — beachfront</li></ul></div>
+      <div class="tier lux"><div class="lvl">Splurge stay</div><h5>Cape Lodge / Injidup Spa Retreat</h5><ul><li>Cape Lodge — lake views, top restaurant, the region's best stay</li><li>Injidup Spa Retreat — adults-only ocean-view villas with plunge pools</li><li>Pullman Bunker Bay Resort — beachfront</li></ul></div>
       <div class="tier mid"><div class="lvl">Comfortable base</div><h5>Margaret River / Wilyabrup</h5><ul><li>Burnside Organic Farm — private bungalows on a farm (lovely)</li><li>The Sebel / Stay Margaret River</li><li>Forest Rise chalets — fireplaces in the trees</li></ul></div>
       <div class="tier val"><div class="lvl">Value</div><h5>Cottages & town</h5><ul><li>Self-contained cottages around Cowaramup</li><li>Margaret River Hotel / motels in town</li><li>Holiday-home rentals (kitchen = picnic supplies)</li></ul></div>
     </div>
-    <p class="note">Recommended: ~4 nights at a comfortable central base + a 1–2 night anniversary splurge (Cape Lodge or Injidup). Want me to lock a specific plan? Tell me your nightly budget and I'll pick.</p>
+    <p class="note">Recommended: ~4 nights at a comfortable central base + a 1–2 night splurge (Cape Lodge or Injidup) — pick something with room for three. Want me to lock a specific plan? Tell me your nightly budget and I'll pick.</p>
   </div>
 
   <div class="card">
@@ -351,8 +348,8 @@ function overviewHTML(){
       <li><b>Day 2</b> — Cape to Cape clifftop hiking (Sugarloaf Rock, Meelup)</li>
       <li><b>Day 3</b> — Cycle the rail-trail + one relaxed winery lunch</li>
       <li><b>Day 4</b> — Karri forest walking &amp; Lake Cave (the one cave)</li>
-      <li><b>Day 5</b> — Augusta, Cape Leeuwin &amp; whales 💛 <i>anniversary</i></li>
-      <li><b>Day 6</b> — Surf or kayak, rivermouth walk &amp; couples' spa</li>
+      <li><b>Day 5</b> — Augusta, Cape Leeuwin &amp; whales 🥂 <i>celebration dinner</i></li>
+      <li><b>Day 6</b> — Surf or kayak, rivermouth walk &amp; spa afternoon</li>
       <li><b>Day 7</b> — Final walk, drive back to Perth</li>
     </ul>
     <p class="note">Tap any day in the menu above to expand its full plan. Tap an activity card to reveal tips &amp; a map link.</p>
@@ -367,7 +364,7 @@ function essentialsHTML(){
       <li><b>Flights:</b> Singapore → Perth is ~5 hrs. <span class="note">Send me your exact 11 &amp; 17 July times and I'll fine-tune Days 1 &amp; 7.</span></li>
       <li><b>Car:</b> self-drive from Perth Airport — essential here. Book an automatic; consider full insurance for gravel roads (e.g. Boranup Drive).</li>
       <li><b>Drive:</b> Perth → Margaret River ≈ 2.5–3 hrs. Within the region, hops are 10–45 min.</li>
-      <li><b>Designated driver:</b> with one light drinker, you're set — the non-drinker drives on tasting days while the other enjoys the cellar doors.</li>
+      <li><b>Designated driver:</b> with three of you, rotate who drives on tasting days so everyone gets a turn at the cellar door.</li>
     </ul>
   </div>
 
@@ -380,14 +377,14 @@ function essentialsHTML(){
 
   <div class="card">
     <h3>📞 Book these ahead</h3>
-    <p class="note">Winter is quieter, but the best tables, the whale cruise and guided caves still fill — especially around your anniversary night.</p>
+    <p class="note">Winter is quieter, but the best tables, the whale cruise and guided caves still fill — especially around the celebration dinner night.</p>
     <div id="booking"></div>
     <button class="reset" data-reset="booking">Reset booking list</button>
   </div>
 
   <div class="card">
-    <h3>💸 Rough budget (AUD, per couple)</h3>
-    <p class="note">Indicative only — "mixed" budget with a couple of splurges. 6 nights / 7 days.</p>
+    <h3>💸 Rough budget (AUD, total trip)</h3>
+    <p class="note">Indicative only — "mixed" budget with a couple of splurges. 6 nights / 7 days. Figures below assume two sharing costs; adjust once accommodation is booked for three.</p>
     <ul>
       <li><b>Car hire + fuel:</b> ~$450–650</li>
       <li><b>Accommodation:</b> ~$1,300–2,600 (value base + 1–2 splurge nights)</li>
@@ -411,15 +408,15 @@ function essentialsHTML(){
 
 const PACKING = [
   'Waterproof / windproof jacket','Warm layers (fleece, jumper)','Long trousers & a couple of warmer tops',
-  'Sturdy waterproof hiking shoes (lots of walking)','Activewear / quick-dry layers for hikes & cycling','Smart-casual outfit for anniversary dinner','Beanie, scarf & gloves for the capes',
+  'Sturdy waterproof hiking shoes (lots of walking)','Activewear / quick-dry layers for hikes & cycling','Smart-casual outfit for the celebration dinner','Beanie, scarf & gloves for the capes',
   'Swimwear & towel (surf lesson / spa)','Sunglasses (winter glare is real)','Reusable water bottle & travel mug',
   'Seasickness tablets for the whale cruise','Daypack for walks','Camera / phone + car charger',
   'Insulated flask for hot drinks on the coast','Power adapter (AU Type I)','Cooler bag for cheese, chocolate & wine souvenirs'
 ];
 const BOOKING = [
-  'Rental car (automatic, Perth Airport)','Accommodation — incl. anniversary splurge night','Augusta whale-watching cruise (Day 5)',
-  'Anniversary dinner (Cape Lodge / Leeuwin / Arimia)','Miki\'s Open Kitchen (Day 3 — books out)','Lake Cave guided tour (Day 4)',
-  'Bike hire for the Wadandi Track (Day 3)','Surf lesson or kayak hire (Day 6)','Couples\' spa treatment (Day 6)','Vasse Felix winery lunch (Day 3)'
+  'Rental car (automatic, Perth Airport)','Accommodation — incl. splurge night','Augusta whale-watching cruise (Day 5)',
+  'Celebration dinner (Cape Lodge / Leeuwin / Arimia)','Miki\'s Open Kitchen (Day 3 — books out)','Lake Cave guided tour (Day 4)',
+  'Bike hire for the Wadandi Track (Day 3)','Surf lesson or kayak hire (Day 6)','Spa treatment (Day 6)','Vasse Felix winery lunch (Day 3)'
 ];
 
 // ════════════════════════════════════════════════
@@ -439,18 +436,18 @@ function paneHTML(id){
   const d = DAYS.find(x=>'day'+x.n===id);
   return `
     <div class="dayhead">
-      <div class="tag">Day ${d.n} · ${d.dow} ${d.date}${d.anniv?' · 💛 Anniversary':''}</div>
+      <div class="tag">Day ${d.n} · ${d.dow} ${d.date}</div>
       <h2>${d.title}</h2>
       <p>${d.theme}</p>
       <div class="daymeta">${d.meta.map(m=>`<span class="chip">${m}</span>`).join('')}</div>
     </div>
     ${d.items.map((it,idx)=>`
-      <div class="item ${it.anniv?'anniv':''}" data-item="${d.n}-${idx}">
+      <div class="item" data-item="${d.n}-${idx}">
         <div class="item-head">
           <div class="item-ic">${it.ic}</div>
           <div class="item-main">
             <div class="item-time">${it.t}</div>
-            <div class="item-title">${it.title}${it.anniv?'<span class="anniv-badge">Anniversary</span>':''}</div>
+            <div class="item-title">${it.title}</div>
             <div class="item-blurb">${it.blurb}</div>
             ${it.flags&&it.flags.length?`<div class="item-flags">${it.flags.map(f=>{const[k,...r]=f.split(':');const v=r.join(':');return v?`<span class="flag ${k}">${v}</span>`:`<span class="flag time">${k}</span>`;}).join('')}</div>`:''}
           </div>
@@ -500,7 +497,7 @@ document.getElementById('nav').addEventListener('click',e=>{
   const b=e.target.closest('button'); if(b) show(b.dataset.tab);
 });
 
-document.getElementById('foot').innerHTML = 'Crafted for your Margaret River anniversary · 11–17 July 2026 · tap days to explore, activities to expand';
+document.getElementById('foot').innerHTML = 'Crafted for Perth Pals in Margaret River · 11–17 July 2026 · tap days to explore, activities to expand';
 show('overview');
 </script>
 </body>
