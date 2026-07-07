@@ -108,6 +108,26 @@ a{color:var(--teal);}
 .callout b{color:var(--terra);}
 .note{font-size:0.8rem;color:var(--muted);font-style:italic;}
 .foot{text-align:center;color:var(--muted);font-size:0.76rem;padding:24px 16px;}
+
+/* PLAN MODE TOGGLE (local's picks vs original) */
+.modebar{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--paper);
+  border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;padding:10px 14px;
+  margin-bottom:16px;box-shadow:var(--shadow);}
+.modebar.orig{border-left-color:var(--muted);}
+.modebar-main{display:flex;flex-direction:column;gap:2px;min-width:0;}
+.modebar-tag{font-size:0.8rem;font-weight:800;color:var(--green);}
+.modebar.orig .modebar-tag{color:var(--muted);}
+.modebar-sub{font-size:0.71rem;color:var(--muted);}
+.modebar-btn{flex:0 0 auto;font-size:0.74rem;font-weight:700;color:var(--green);background:#eef3ee;
+  border:1px solid var(--line);border-radius:8px;padding:6px 11px;cursor:pointer;white-space:nowrap;}
+.modebar.orig .modebar-btn{color:var(--terra);background:#fdf0e8;}
+.locals-badge{display:inline-block;font-size:0.58rem;font-weight:800;letter-spacing:0.4px;color:#9a7b1f;
+  background:#fbf3dc;border:1px solid #ecd9a6;border-radius:6px;padding:1px 5px;vertical-align:middle;
+  margin-left:6px;white-space:nowrap;}
+.changed-note{background:#fbf6e8;border-left:3px solid var(--gold);border-radius:0 8px 8px 0;
+  padding:8px 12px;font-size:0.8rem;color:#5a5038;margin-bottom:8px;}
+.changed-note .changed-sub{display:block;margin-top:4px;font-size:0.72rem;color:var(--muted);font-style:italic;}
+
 @media(max-width:560px){ .hero h1{font-size:1.7rem;} .item-detail{padding-left:16px;} }
 </style>
 </head>
@@ -187,18 +207,30 @@ const DAYS = [
         flags:['time:2–3 hrs','🥾 ~7 km return','🧥 Windproof layers'],
         why:'Raw, photogenic and quintessentially southwest WA. This is the signature walk of the northern capes.',
         mapq:'Sugarloaf Rock Yallingup'},
-      {t:'Lunch', ic:'🥪', title:'Casual lunch — Dunsborough / Bunker Bay', blurb:'Refuel simply: Bunkers Beach Café (ocean views) or a relaxed bite in Dunsborough.',
-        flags:['cost:Casual'],
-        why:'Earned it. A laid-back lunch, not a long one — there\'s more coast to walk.',
-        mapq:'Bunkers Beach Cafe'},
+      {t:'Lunch', ic:'🥐', title:'Lunch at Meelup Farmhouse', blurb:'A relaxed, stylish farmhouse café near Meelup — a Perth local\'s favourite that "wouldn\'t look out of place in Byron Bay". You can feed the animals if that\'s your thing.',
+        flags:['cost:Casual–mid','book:Popular — worth booking'],
+        why:'You\'re right by Meelup this day, so it\'s an easy, lovely refuel between coast walks.',
+        mapq:'Meelup Farmhouse Dunsborough',
+        changed:true, chg:'Swapped the casual Bunker Bay lunch for Meelup Farmhouse, a local\'s pick right by your Day 2 coast walking.',
+        orig:{t:'Lunch', ic:'🥪', title:'Casual lunch — Dunsborough / Bunker Bay', blurb:'Refuel simply: Bunkers Beach Café (ocean views) or a relaxed bite in Dunsborough.', flags:['cost:Casual'], why:'Earned it. A laid-back lunch, not a long one — there\'s more coast to walk.', mapq:'Bunkers Beach Cafe'}},
       {t:'Afternoon', ic:'🌅', title:'Meelup Regional Park coast walk', blurb:'Gentle, gorgeous walking trails linking Meelup, Eagle Bay and Castle Rock — sheltered granite coves and another whale-watch chance.',
         flags:['time:1–2 hrs','🥾 Choose your distance'],
         why:'Softer and prettier than the morning\'s rugged track — wildflowers begin and the coves are postcard-calm.',
         mapq:'Meelup Beach Dunsborough'},
+      {t:'Afternoon', ic:'🪨', title:'Canal Rocks boardwalk & Yallingup Beach', blurb:'A short boardwalk threads out through the granite channels at Canal Rocks, where the swell surges between the rocks — then stretch along nearby Yallingup Beach.',
+        flags:['time:45–60 min','🥾 Boardwalk + beach','📷 Dramatic granite'],
+        why:'A Perth local\'s tip and a quintessential northern-capes stop — easy, photogenic and right on your Day 2 coast run.',
+        mapq:'Canal Rocks Yallingup',
+        added:true, chg:'Added on a Perth local\'s tip — a short, scenic coastal stop that slots neatly into your northern-capes day.'},
       {t:'Optional', ic:'🌳', title:'Forest Adventures high ropes & zip lines', blurb:'For an adrenaline hit: a tree-top ropes course and zip lines near Busselton.',
         flags:['time:2–3 hrs','cost:~$48 pp','book:Pre-book'],
         why:'A fun, active swap if your legs still have spring in them — skip if the morning hike was plenty.',
         mapq:'Forest Adventures Busselton'},
+      {t:'Sundowner', ic:'🍺', title:'Drinks at Caves House, Yallingup', blurb:'Wind up the day at Caves House — an iconic heritage hotel with rambling gardens, about 10 min from Dunsborough.',
+        flags:['📍 Yallingup','🍺 Historic pub'],
+        why:'A Perth local\'s pick — a characterful old pub and a perfect place to toast a big day on the capes before the drive back to base.',
+        mapq:'Caves House Hotel Yallingup',
+        added:true, chg:'Added on a Perth local\'s tip — an iconic heritage pub for an end-of-day drink up north.'},
     ]
   },
   {
@@ -218,6 +250,11 @@ const DAYS = [
         flags:['time:1.5 hrs','book:Reserve','cost:Mid–premium'],
         why:'A single, unhurried cellar-door lunch — the wine highlight of the trip without a full day of tastings.',
         mapq:'Vasse Felix'},
+      {t:'Local\'s alt', ic:'🍇', title:'Alt: Wills Domain or a small local cellar door', blurb:'Prefer a local secret? Wills Domain has "the best view from a restaurant in the region" plus a cellar door — or seek out smaller makers locals love: Pierro, Deep Woods, Windows Estate, Stormflower, or dog-friendly Cape Naturaliste.',
+        flags:['book:Reserve for lunch','cost:Mid–premium','🍇 Less-exported wines'],
+        why:'A Perth local\'s steer: these pour wines you\'re less likely to find outside WA — a more off-the-track alternative to the flagship Vasse Felix lunch.',
+        mapq:'Wills Domain Winery',
+        added:true, chg:'Added a local\'s alternative to the Vasse Felix lunch — Wills Domain (best views) or smaller insider cellar doors.'},
       {t:'Afternoon', ic:'🍫', title:'Quick stop: Margaret River Chocolate Co', blurb:'A short, fun detour for free chocolate tastings on the way back (the driver\'s reward).',
         flags:['time:30 min','cost:Free'],
         why:'One gourmet stop, not a crawl — keeps the day light.',
@@ -306,10 +343,12 @@ const DAYS = [
         flags:['book:Book the slot','cost:Mid–premium'],
         why:'The perfect way to soothe active legs after a big week outdoors.',
         mapq:'Injidup Spa Retreat'},
-      {t:'Evening', ic:'🍻', title:'Farewell dinner or brewery', blurb:'Cheeky Monkey or Black Brewing Co for a relaxed last evening, or a final favourite restaurant.',
-        flags:['cost:Casual–mid'],
-        why:'Toast the trip. The driver can grab a tasting paddle to take away.',
-        mapq:'Black Brewing Co Margaret River'},
+      {t:'Evening', ic:'🍻', title:'Farewell drinks — Margaret River Brewhouse', blurb:'A relaxed last evening at Margaret River Brewhouse, an excellent brewery right in town.',
+        flags:['cost:Casual–mid','📍 In town'],
+        why:'A Perth local\'s in-town pick — easy from your base and a great spot to toast the trip. The driver can grab a paddle to take away.',
+        mapq:'Margaret River Brewhouse',
+        changed:true, chg:'Swapped the out-of-town brewery for Margaret River Brewhouse — a local\'s pick right in town.',
+        orig:{t:'Evening', ic:'🍻', title:'Farewell dinner or brewery', blurb:'Cheeky Monkey or Black Brewing Co for a relaxed last evening, or a final favourite restaurant.', flags:['cost:Casual–mid'], why:'Toast the trip. The driver can grab a tasting paddle to take away.', mapq:'Black Brewing Co Margaret River'}},
     ]
   },
   {
@@ -377,7 +416,19 @@ function overviewHTML(){
       <li><b>Day 7</b> — Final walk, drive back to Perth</li>
     </ul>
     <p class="note">Tap any day in the menu above to expand its full plan. Tap an activity card to reveal tips &amp; a map link.</p>
-  </div>`;
+  </div>
+
+  <details class="card">
+    <summary style="font-weight:700;color:var(--green);cursor:pointer;">✨ What's new — 5 local tweaks <span class="note" style="font-weight:400;">· tap to expand</span></summary>
+    <ul style="margin-top:10px;">
+      <li><b>Day 2 lunch</b> → Meelup Farmhouse <span class="note">(was Bunker Bay)</span></li>
+      <li><b>Day 2</b> → added Canal Rocks boardwalk &amp; Yallingup Beach</li>
+      <li><b>Day 2</b> → added a Caves House sundowner</li>
+      <li><b>Day 3</b> → added a Wills Domain / small cellar-door lunch alternative</li>
+      <li><b>Day 6</b> → farewell drinks at Margaret River Brewhouse <span class="note">(was Black Brewing Co)</span></li>
+    </ul>
+    <p class="note">All suggested by a Perth local. Changed items are tagged <span class="locals-badge">✨ NEW</span> / <span class="locals-badge">✨ UPDATED</span> in each day — tap one for details. Prefer the original? Use <b>Revert to original</b> at the top of any day to switch the whole plan back.</p>
+  </details>`;
 }
 
 function essentialsHTML(){
@@ -447,6 +498,21 @@ const BOOKING = [
 // ════════════════════════════════════════════════
 // RENDER
 // ════════════════════════════════════════════════
+// Plan mode: 'locals' (Perth local's picks, default) or 'original' (revert)
+let MODE = localStorage.getItem('mr-plan-mode') || 'locals';
+let CURRENT = 'overview';
+
+function modebarHTML(){
+  const locals = MODE==='locals';
+  return `<div class="modebar ${locals?'locals':'orig'}">
+    <div class="modebar-main">
+      <span class="modebar-tag">${locals?'✨ Local\'s picks':'📋 Original plan'}</span>
+      <span class="modebar-sub">${locals?'5 tips from a Perth local applied · tap any ✨ item for what changed':'showing the original itinerary'}</span>
+    </div>
+    <button class="modebar-btn" data-mode-toggle>${locals?'Revert to original':'Show local\'s picks'}</button>
+  </div>`;
+}
+
 const wrap = document.getElementById('nav');
 const TABS = [{id:'overview',label:'Overview',d:'Start here'},
   ...DAYS.map(d=>({id:'day'+d.n,label:'Day '+d.n,d:d.date})),
@@ -459,6 +525,9 @@ function paneHTML(id){
   if(id==='overview') return overviewHTML();
   if(id==='essentials') return essentialsHTML();
   const d = DAYS.find(x=>'day'+x.n===id);
+  const items = d.items
+    .filter(it => MODE==='locals' || !it.added)
+    .map(it => (MODE==='original' && it.orig) ? Object.assign({}, it, it.orig) : it);
   return `
     <div class="dayhead">
       <div class="tag">Day ${d.n} · ${d.dow} ${d.date}</div>
@@ -466,34 +535,40 @@ function paneHTML(id){
       <p>${d.theme}</p>
       <div class="daymeta">${d.meta.map(m=>`<span class="chip">${m}</span>`).join('')}</div>
     </div>
-    ${d.items.map((it,idx)=>`
+    ${items.map((it,idx)=>{
+      const isNew = MODE==='locals' && (it.added || it.orig);
+      return `
       <div class="item" data-item="${d.n}-${idx}">
         <div class="item-head">
           <div class="item-ic">${it.ic}</div>
           <div class="item-main">
             <div class="item-time">${it.t}</div>
-            <div class="item-title">${it.title}</div>
+            <div class="item-title">${it.title}${isNew?` <span class="locals-badge">${it.added?'✨ NEW':'✨ UPDATED'}</span>`:''}</div>
             <div class="item-blurb">${it.blurb}</div>
             ${it.flags&&it.flags.length?`<div class="item-flags">${it.flags.map(f=>{const[k,...r]=f.split(':');const v=r.join(':');return v?`<span class="flag ${k}">${v}</span>`:`<span class="flag time">${k}</span>`;}).join('')}</div>`:''}
           </div>
           <div class="chev">▶</div>
         </div>
         <div class="item-detail">
+          ${isNew?`<div class="changed-note">🔄 <b>What changed:</b> ${it.chg}<span class="changed-sub">Prefer the original? Tap “Revert to original” at the top to switch the whole plan back.</span></div>`:''}
           <div class="why">💡 ${it.why}</div>
           ${it.mapq?`<a class="maplink" href="${map(it.mapq)}" target="_blank" rel="noopener">📍 Open in Google Maps →</a>`:''}
         </div>
-      </div>`).join('')}`;
+      </div>`;}).join('')}`;
 }
 
 function show(id){
+  CURRENT = id;
   document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));
-  document.getElementById('wrap').innerHTML = `<div class="pane active">${paneHTML(id)}</div>`;
+  document.getElementById('wrap').innerHTML = `${modebarHTML()}<div class="pane active">${paneHTML(id)}</div>`;
   window.scrollTo({top:0,behavior:'smooth'});
   if(id==='essentials'){ renderChecklist('packing',PACKING); renderChecklist('booking',BOOKING); }
 }
 
 // expand/collapse activity cards
 document.getElementById('wrap').addEventListener('click', e=>{
+  const mt = e.target.closest('[data-mode-toggle]');
+  if(mt){ MODE = (MODE==='locals'?'original':'locals'); localStorage.setItem('mr-plan-mode',MODE); show(CURRENT); return; }
   const head = e.target.closest('.item-head');
   if(head && !e.target.closest('a')){ head.parentElement.classList.toggle('open'); }
   const reset = e.target.closest('[data-reset]');
