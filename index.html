@@ -132,14 +132,34 @@ const map = q => `https://www.google.com/maps/search/?api=1&query=${encodeURICom
 
 const DAYS = [
   {
-    n:1, dow:'Saturday', date:'11 July', title:'Touchdown & the road south',
-    theme:'Land in Perth, collect the car, and ease into the southwest — stretch your legs along the Busselton Jetty before settling in.',
-    meta:['🚗 Perth → base ≈ 2.5–3 hrs','🚶 Jetty stroll','🍽️ Casual first dinner'],
+    n:1, dow:'Saturday', date:'11 July', title:'Touchdown, parkrun & the road south',
+    theme:'The crew lands in Perth overnight and Saturday morning — a foreshore parkrun near the hotel, collect the car at the airport, then ease into the southwest via the Busselton Jetty.',
+    meta:['🛬 Land Perth (overnight + AM)','🏃 Claisebrook Cove parkrun','🚗 Car 10:30 → base ≈ 2.5–3 hrs'],
     items:[
-      {t:'On arrival', ic:'✈️', title:'Perth Airport → pick up rental car', blurb:'Collect your hire car and point the GPS south. The drive to the Margaret River region is a scenic ~2.5–3 hrs via the Forrest & Bussell Highways.',
-        flags:['drive:≈3 hrs to Margaret River','book:Car hire pre-booked'],
-        why:'Doing the drive in daylight is lovely — rolling farmland, then towering trees. If your flight lands late, consider a first night near Perth or Busselton and start fresh.',
+      {t:'~1:00 am (Sat)', ic:'🛬', title:'Stef & Bell land — Qantas from Singapore', blurb:'Arriving late Friday evening, the Qantas flight from Singapore touches down around 1 am Saturday morning. Straight to the hotel to sleep.',
+        flags:['time:Lands ~1 am Sat','book:Qantas ex-Singapore'],
+        why:'A red-eye arrival means a short night — the gentle parkrun and airport car pickup are timed so you\'re not rushing on no sleep.',
         mapq:'Perth Airport'},
+      {t:'Overnight', ic:'🏨', title:'Stay: Parmelia Hilton Perth', blurb:'Stef & Bell check in at the Parmelia Hilton on Mill Street, right in the Perth CBD — a few hours\' rest before the morning.',
+        flags:['book:Parmelia Hilton, Mill St','📍 Perth CBD'],
+        why:'Central and walkable to the river foreshore, so the morning parkrun is on the doorstep.',
+        mapq:'Parmelia Hilton Perth, Mill Street'},
+      {t:'8:30 am', ic:'✈️', title:'Marc lands from Melbourne', blurb:'Marc\'s flight from Melbourne arrives into Perth at 8:30 am — the group converges in Perth for the drive south.',
+        flags:['time:Arrives 8:30 am','book:ex-Melbourne'],
+        why:'Marc lands as Stef & Bell finish their parkrun — good timing to regroup and head to the airport car pickup together.',
+        mapq:'Perth Airport'},
+      {t:'Saturday morning', ic:'🏃', title:'Claisebrook Cove parkrun', blurb:'Stef & Bell shake off the flight with the free 5 km Claisebrook Cove parkrun — a flat, fast foreshore loop just minutes from the Parmelia. Starts 8:00 am Saturday.',
+        flags:['time:8:00 am start','🏃 Free 5 km','📍 Near the hotel'],
+        why:'A short walk/ride from the hotel and dead flat — the perfect way to reset the legs after an overnight flight before a day in the car.',
+        mapq:'Claisebrook Cove parkrun Perth'},
+      {t:'~10:00 am', ic:'🧳', title:'Check out of the Parmelia Hilton', blurb:'Shower, pack and check out after the parkrun, then head to the airport to collect the car.',
+        flags:['time:Check out post-parkrun'],
+        why:'One clean move from CBD to airport keeps the morning simple — no doubling back.',
+        mapq:'Parmelia Hilton Perth, Mill Street'},
+      {t:'10:30 am', ic:'🚗', title:'Collect the car — Apex Car Rental, Perth Airport', blurb:'Pick up the booked Mitsubishi Outlander from Apex Car Rental at Perth Airport at 10:30, then point the GPS south. The drive to Margaret River is a scenic ~2.5–3 hrs via the Forrest & Bussell Highways.',
+        flags:['time:Pickup 10:30 am','book:Apex — Mitsubishi Outlander','drive:≈3 hrs to Margaret River'],
+        why:'The Outlander is a comfy AWD for the highway run and the region\'s gravel roads (e.g. Boranup Drive). A 10:30 pickup gets you south with daylight to spare.',
+        mapq:'Apex Car Rental Perth Airport'},
       {t:'Afternoon', ic:'🌊', title:'Walk the Busselton Jetty', blurb:'Stretch out the flight with the full 1.8 km walk along the longest timber-piled jetty in the southern hemisphere (or take the little train one way).',
         flags:['time:1–1.5 hrs','🚶 ~3.6 km return','cost:Jetty ~$4'],
         why:'A brisk, salt-air leg-stretch is the perfect antidote to a long flight. Bunkers Beach Café at nearby Bunker Bay is a lovely ocean-view lunch.',
@@ -293,21 +313,29 @@ const DAYS = [
     ]
   },
   {
-    n:7, dow:'Friday', date:'17 July', title:'Last walk & the drive back',
-    theme:'A final morning walk, a quick produce stop, and the scenic run back to Perth for your flight.',
-    meta:['🥾 Final stroll','🚗 ≈3 hrs to Perth','✈️ Departure'],
+    n:7, dow:'Friday', date:'17 July', title:'The drive back & flights out',
+    theme:'An early farewell walk, then the scenic run back to Perth for two afternoon departures — Marc to Melbourne, Stef & Bell on to Bali.',
+    meta:['🥾 Early stroll','🚗 ≈3 hrs to Perth','✈️ Marc 15:30 · Stef & Bell 16:30'],
     items:[
-      {t:'Morning', ic:'🥾', title:'Farewell walk & a produce stop', blurb:'A last easy walk — the Rotary Lookout or a town river path — then grab edible souvenirs (Bettenay\'s nougat, Vasse Virgin olive oil).',
-        flags:['time:1 hr','🥾 Gentle'],
-        why:'One more lungful of southwest air before the road, plus treats to stretch the trip out at home.',
+      {t:'Early morning', ic:'🥾', title:'Farewell walk & a produce stop', blurb:'A last easy walk — the Rotary Lookout or a town river path — then grab edible souvenirs (Bettenay\'s nougat, Vasse Virgin olive oil). Keep it early to protect the drive north.',
+        flags:['time:~45 min','🥾 Gentle'],
+        why:'One more lungful of southwest air before the road, plus treats to stretch the trip out at home. With two afternoon flights, don\'t linger.',
         mapq:'Rotary Lookout Margaret River'},
-      {t:'Midday', ic:'🚗', title:'Drive back to Perth', blurb:'The ~3 hr return. With time to spare, detour to Mandurah or Fremantle for a late lunch.',
-        flags:['drive:≈3 hrs','time:Leave a buffer'],
-        why:'Allow generous time before your flight — plus fuel-up and car return.',
-        mapq:'Fremantle'},
-      {t:'Evening', ic:'✈️', title:'Return car & fly home', blurb:'Drop the car at Perth Airport and check in.',
-        flags:['book:Mind the flight time'],
-        why:'Tell me your exact flight times and I\'ll tighten Days 1 & 7 around them.',
+      {t:'~9:00 am', ic:'🚗', title:'Drive back to Perth Airport', blurb:'The ~3 hr return via the Bussell & Forrest Highways. Leave Margaret River by ~9 am to reach the airport with a comfortable buffer for both flights.',
+        flags:['drive:≈3 hrs','time:Leave by ~9 am'],
+        why:'Backing a 3 hr drive against a 15:30 flight means an early start — fuel up on the way and return the Outlander to Apex before check-in.',
+        mapq:'Perth Airport'},
+      {t:'By ~1:00 pm', ic:'⛽', title:'Return the car — Apex, Perth Airport', blurb:'Drop the Mitsubishi Outlander back to Apex Car Rental at Perth Airport, refuelled, then split for the two terminals.',
+        flags:['book:Apex return','time:Aim ~1 pm'],
+        why:'Returning by early afternoon leaves easy time for Marc\'s 15:30 check-in and the international leg for Stef & Bell.',
+        mapq:'Apex Car Rental Perth Airport'},
+      {t:'3:30 pm', ic:'✈️', title:'Marc flies home to Melbourne', blurb:'Marc\'s flight back to Melbourne departs Perth at 15:30.',
+        flags:['time:Departs 15:30','book:ex-Perth → Melbourne'],
+        why:'The earlier of the two departures — Marc peels off first once the car\'s returned.',
+        mapq:'Perth Airport'},
+      {t:'4:30 pm', ic:'🌴', title:'Stef & Bell fly on to Bali', blurb:'Stef & Bell continue the adventure — their flight to Bali departs Perth at 16:30. Allow time for international check-in and outbound formalities.',
+        flags:['time:Departs 16:30','book:ex-Perth → Bali','✈️ International'],
+        why:'An international departure needs a longer check-in window, so the ~1 pm car return and single terminal shuffle keep it stress-free.',
         mapq:'Perth Airport'},
     ]
   },
@@ -340,7 +368,7 @@ function overviewHTML(){
   <div class="card">
     <h3>🗺️ The shape of the trip</h3>
     <ul>
-      <li><b>Day 1</b> — Arrive Perth, drive south, walk the Busselton Jetty</li>
+      <li><b>Day 1</b> — Land Perth, Claisebrook Cove parkrun, collect the car, drive south (Busselton Jetty)</li>
       <li><b>Day 2</b> — Cape to Cape clifftop hiking (Sugarloaf Rock, Meelup)</li>
       <li><b>Day 3</b> — Cycle the rail-trail + one relaxed winery lunch</li>
       <li><b>Day 4</b> — Karri forest walking &amp; Lake Cave (the one cave)</li>
@@ -357,8 +385,9 @@ function essentialsHTML(){
   <div class="card">
     <h3>🧭 Getting there & around</h3>
     <ul>
-      <li><b>Flights:</b> Singapore → Perth is ~5 hrs. <span class="note">Send me your exact 11 &amp; 17 July times and I'll fine-tune Days 1 &amp; 7.</span></li>
-      <li><b>Car:</b> self-drive from Perth Airport — essential here. Book an automatic; consider full insurance for gravel roads (e.g. Boranup Drive).</li>
+      <li><b>Arrivals (Sat 11 July):</b> Stef &amp; Bell on the Qantas flight from Singapore, landing ~1 am (overnight at the Parmelia Hilton, Perth CBD); Marc from Melbourne at 8:30 am.</li>
+      <li><b>Departures (Fri 17 July):</b> Marc back to Melbourne at 15:30; Stef &amp; Bell on to Bali at 16:30 — both from Perth Airport.</li>
+      <li><b>Car:</b> Mitsubishi Outlander from Apex Car Rental, Perth Airport — pickup 10:30 am Sat, return by ~1 pm Fri. AWD is handy for gravel roads (e.g. Boranup Drive).</li>
       <li><b>Drive:</b> Perth → Margaret River ≈ 2.5–3 hrs. Within the region, hops are 10–45 min.</li>
       <li><b>Designated driver:</b> with three of you, rotate who drives on tasting days so everyone gets a turn at the cellar door.</li>
     </ul>
@@ -410,7 +439,7 @@ const PACKING = [
   'Insulated flask for hot drinks on the coast','Power adapter (AU Type I)','Cooler bag for cheese, chocolate & wine souvenirs'
 ];
 const BOOKING = [
-  'Rental car (automatic, Perth Airport)','Augusta whale-watching cruise (Day 5)',
+  'Rental car — Apex, Mitsubishi Outlander (pickup 10:30 Sat)','Parmelia Hilton, Perth (Fri night, Stef & Bell)','Augusta whale-watching cruise (Day 5)',
   'Celebration dinner (Cape Lodge / Leeuwin / Arimia)','Miki\'s Open Kitchen (Day 3 — books out)','Lake Cave guided tour (Day 4)',
   'Bike hire for the Wadandi Track (Day 3)','Surf lesson or kayak hire (Day 6)','Spa treatment (Day 6)','Vasse Felix winery lunch (Day 3)'
 ];
