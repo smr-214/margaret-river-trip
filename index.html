@@ -76,6 +76,8 @@ a{color:var(--teal);}
 .item-detail{display:none;padding:0 16px 16px 56px;}
 .item.open .item-detail{display:block;}
 .item-detail p{font-size:0.86rem;margin-bottom:8px;}
+.item-detail .item-blurb{margin-bottom:10px;}
+.item-detail .item-flags{margin-top:0;margin-bottom:10px;}
 .item-detail .why{background:#f4f0e6;border-left:3px solid var(--green2);border-radius:0 8px 8px 0;
   padding:8px 12px;font-size:0.84rem;color:#4a4338;}
 .maplink{display:inline-flex;align-items:center;gap:5px;font-size:0.8rem;font-weight:600;text-decoration:none;
@@ -565,12 +567,12 @@ function paneHTML(id){
           <div class="item-main">
             <div class="item-time">${it.t}</div>
             <div class="item-title">${it.title}${isNew?` <span class="locals-badge">${it.added?'✨ NEW':'✨ UPDATED'}</span>`:''}</div>
-            <div class="item-blurb">${it.blurb}</div>
-            ${it.flags&&it.flags.length?`<div class="item-flags">${it.flags.map(f=>{const[k,...r]=f.split(':');const v=r.join(':');return v?`<span class="flag ${k}">${v}</span>`:`<span class="flag time">${k}</span>`;}).join('')}</div>`:''}
           </div>
           <div class="chev">▶</div>
         </div>
         <div class="item-detail">
+          <div class="item-blurb">${it.blurb}</div>
+          ${it.flags&&it.flags.length?`<div class="item-flags">${it.flags.map(f=>{const[k,...r]=f.split(':');const v=r.join(':');return v?`<span class="flag ${k}">${v}</span>`:`<span class="flag time">${k}</span>`;}).join('')}</div>`:''}
           ${isNew?`<div class="changed-note">🔄 <b>What changed:</b> ${it.chg}<span class="changed-sub">Prefer the original? Tap “Revert to original” at the top to switch the whole plan back.</span></div>`:''}
           <div class="why">💡 ${it.why}</div>
           ${it.mapq?`<a class="maplink" href="${map(it.mapq)}" target="_blank" rel="noopener">📍 Open in Google Maps →</a>`:''}
