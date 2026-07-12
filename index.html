@@ -215,6 +215,10 @@ const DAYS = [
         flags:['book:✅ Booked — sails 10:15','time:Board 9:45 am','cost:~$90 pp'],
         why:'THE seasonal headline, and now locked in. July sits right in the winter window — few places on earth offer whale watching this reliable. Bring warm, windproof layers and seasickness tablets.',
         mapq:'Augusta Boat Harbour'},
+      {t:'~1:00 pm', ic:'🍽️', title:'Lunch at The Colourpatch', blurb:'Waterfront lunch at The Colourpatch on the Blackwood River foreshore, minutes from the boat harbour — a seafood-focused menu with Margaret River wines and deck seating over the water.',
+        flags:['book:✅ Done — Colourpatch','📍 Augusta foreshore','🦞 Seafood + MR wines'],
+        why:'Right by where the cruise docks — an easy, scenic post-whale lunch on the water before Cape Leeuwin.',
+        mapq:'The Colourpatch Augusta'},
       {t:'Early afternoon', ic:'🗼', title:'Cape Leeuwin Lighthouse, Augusta', blurb:'Australia\'s tallest mainland lighthouse, where the Indian and Southern Oceans collide — climb it and walk the windswept grounds and old waterwheel. Just minutes from the boat harbour.',
         flags:['drive:~5 min from harbour','time:1–1.5 hrs','cost:~$25 tour'],
         why:'A genuinely epic spot — two oceans meeting, wind and spray and history — and right where you already are after the cruise. Wrap up warm.',
@@ -230,43 +234,7 @@ const DAYS = [
     ]
   },
   {
-    n:3, dow:'Monday', date:'13 July', title:'Pedal through wine country',
-    theme:'Cycle the old railway through forest and farmland, then reward it with a single relaxed winery lunch — wine country at active pace.',
-    meta:['🚲 Rail-trail cycling','🍷 One winery lunch','🥾 Optional dam walk'],
-    items:[
-      {t:'Morning', ic:'🚲', title:'Cycle the Wadandi Track (Rails to Trails)', blurb:'Hire bikes in town and ride the flat, scenic former railway line through karri forest and farmland between Margaret River and Cowaramup.',
-        flags:['time:2–3 hrs','🚲 ~20 km return (flexible)','cost:Bike hire ~$45'],
-        why:'Easy, mostly flat and beautiful — the most relaxing way to cover ground and feel the landscape. Turn around whenever you like.',
-        mapq:'Wadandi Track Margaret River'},
-      {t:'Alt', ic:'🚵', title:'Or: mountain biking at Compartment 10 / The Pines', blurb:'If you want more bite, the local MTB trails near town range from flowing green runs to technical singletrack.',
-        flags:['time:1–2 hrs','🚵 Trails for all levels'],
-        why:'A swap for the rail-trail if you\'d rather get the heart rate up in the forest.',
-        mapq:'Compartment 10 mountain bike trails Margaret River'},
-      {t:'Lunch', ic:'🍷', title:'One relaxed winery lunch — Vasse Felix', blurb:'The region\'s founding estate (1967): an art gallery and one of WA\'s best winery restaurants. Rotate who drives so everyone gets a turn to taste.',
-        flags:['time:1.5 hrs','book:Reserve','cost:Mid–premium'],
-        why:'A single, unhurried cellar-door lunch — the wine highlight of the trip without a full day of tastings.',
-        mapq:'Vasse Felix'},
-      {t:'Local\'s alt', ic:'🍇', title:'Alt: Wills Domain or a small local cellar door', blurb:'Prefer a local secret? Wills Domain has "the best view from a restaurant in the region" plus a cellar door — or seek out smaller makers locals love: Pierro, Deep Woods, Windows Estate, Stormflower, or dog-friendly Cape Naturaliste.',
-        flags:['book:Reserve for lunch','cost:Mid–premium','🍇 Less-exported wines'],
-        why:'A Perth local\'s steer: these pour wines you\'re less likely to find outside WA — a more off-the-track alternative to the flagship Vasse Felix lunch.',
-        mapq:'Wills Domain Winery',
-        added:true, chg:'Added a local\'s alternative to the Vasse Felix lunch — Wills Domain (best views) or smaller insider cellar doors.'},
-      {t:'Afternoon', ic:'🍫', title:'Quick stop: Margaret River Chocolate Co', blurb:'A short, fun detour for free chocolate tastings on the way back (the driver\'s reward).',
-        flags:['time:30 min','cost:Free'],
-        why:'One gourmet stop, not a crawl — keeps the day light.',
-        mapq:'Margaret River Chocolate Company'},
-      {t:'Late afternoon', ic:'🥾', title:'Optional: Ten Mile Brook Dam trail', blurb:'A peaceful walk or easy ride from town out to the dam through the bush.',
-        flags:['time:1–1.5 hrs','🥾 ~7 km return'],
-        why:'A gentle stretch if you\'re keen — or save your legs for a fireside evening.',
-        mapq:'Ten Mile Brook Dam'},
-      {t:'Evening', ic:'🍽️', title:'Dinner in town — Miki\'s Open Kitchen', blurb:'Refined Japanese with a tempura counter — a local favourite that books out.',
-        flags:['book:Reserve well ahead'],
-        why:'A genuine highlight meal — lock it in early.',
-        mapq:"Miki's Open Kitchen Margaret River"},
-    ]
-  },
-  {
-    n:4, dow:'Tuesday', date:'14 July', title:'Karri forest & the cave',
+    n:3, dow:'Monday', date:'13 July', title:'Karri forest & the cave',
     theme:'A day in the wild green heart of the region — forest walking beneath giant karri, the one unmissable cave, and a white-sand bay.',
     meta:['🌲 Forest walking','💧 Lake Cave','🏖️ Coastal bay'],
     items:[
@@ -292,13 +260,10 @@ const DAYS = [
     ]
   },
   {
-    n:5, dow:'Wednesday', date:'15 July', title:'Cape to Cape — clifftop hiking',
+    n:4, dow:'Tuesday', date:'14 July', title:'Cape to Cape — clifftop hiking',
     theme:'A big day on foot along the northern capes: a lighthouse, the spectacular Cape to Cape Track to Sugarloaf Rock, and granite-cove coast walking — capped by the trip\'s celebration dinner.',
-    meta:['🥾 ~8–10 km walking','🌊 Wild coast','🥂 Celebration dinner','⚽ WC semi-final (3am)'],
+    meta:['🥾 ~8–10 km walking','🌊 Wild coast','🥂 Celebration dinner'],
     items:[
-      {t:'⚽ 3:00 am', ic:'⚽', title:'WC semi-final 1 (Dallas) — Boston QF winner vs LA QF winner', blurb:'The first FIFA World Cup 2026 semi-final, from Dallas — the winners of the Boston and Los Angeles quarter-finals (teams set after those QFs on 9–10 Jul). Kicks off 3:00 am Perth time (3:00 pm Tue US Eastern).',
-        flags:['time:Wed 3:00 am AWST','📺 Middle of the night','⚽ Semi-final'],
-        why:'A 3 am kick-off before a big day of coastal hiking — one to record and watch back at the Airbnb, unless you fancy a very early start.'},
       {t:'Morning', ic:'🗼', title:'Cape Naturaliste Lighthouse', blurb:'Quick guided climb up the 1903 lighthouse with sweeping views over Geographe Bay — scan offshore for early-season whales.',
         flags:['drive:~40 min from MR','time:45 min','cost:~$15 tour'],
         why:'A great orientation point and one of the best free whale-watching vantage spots.',
@@ -335,6 +300,45 @@ const DAYS = [
         flags:['book:Reserve early','cost:Premium — worth it'],
         why:'Build the night around the group. Cape Lodge has one of the region\'s best tables.',
         mapq:'Cape Lodge Margaret River'},
+    ]
+  },
+  {
+    n:5, dow:'Wednesday', date:'15 July', title:'Pedal through wine country',
+    theme:'Cycle the old railway through forest and farmland, then reward it with a single relaxed winery lunch — wine country at active pace.',
+    meta:['🚲 Rail-trail cycling','🍷 One winery lunch','🥾 Optional dam walk','⚽ WC semi-final (3am)'],
+    items:[
+      {t:'⚽ 3:00 am', ic:'⚽', title:'WC semi-final 1 (Dallas) — Boston QF winner vs LA QF winner', blurb:'The first FIFA World Cup 2026 semi-final, from Dallas — the winners of the Boston and Los Angeles quarter-finals (teams set after those QFs on 9–10 Jul). Kicks off 3:00 am Perth time (3:00 pm Tue US Eastern).',
+        flags:['time:Wed 3:00 am AWST','📺 Middle of the night','⚽ Semi-final'],
+        why:'A 3 am kick-off before a relaxed day of cycling and wine country — one to record and watch back at the Airbnb, unless you fancy a very early start.'},
+      {t:'Morning', ic:'🚲', title:'Cycle the Wadandi Track (Rails to Trails)', blurb:'Hire bikes in town and ride the flat, scenic former railway line through karri forest and farmland between Margaret River and Cowaramup.',
+        flags:['time:2–3 hrs','🚲 ~20 km return (flexible)','cost:Bike hire ~$45'],
+        why:'Easy, mostly flat and beautiful — the most relaxing way to cover ground and feel the landscape. Turn around whenever you like.',
+        mapq:'Wadandi Track Margaret River'},
+      {t:'Alt', ic:'🚵', title:'Or: mountain biking at Compartment 10 / The Pines', blurb:'If you want more bite, the local MTB trails near town range from flowing green runs to technical singletrack.',
+        flags:['time:1–2 hrs','🚵 Trails for all levels'],
+        why:'A swap for the rail-trail if you\'d rather get the heart rate up in the forest.',
+        mapq:'Compartment 10 mountain bike trails Margaret River'},
+      {t:'Lunch', ic:'🍷', title:'One relaxed winery lunch — Vasse Felix', blurb:'The region\'s founding estate (1967): an art gallery and one of WA\'s best winery restaurants. Rotate who drives so everyone gets a turn to taste.',
+        flags:['time:1.5 hrs','book:Reserve','cost:Mid–premium'],
+        why:'A single, unhurried cellar-door lunch — the wine highlight of the trip without a full day of tastings.',
+        mapq:'Vasse Felix'},
+      {t:'Local\'s alt', ic:'🍇', title:'Alt: Wills Domain or a small local cellar door', blurb:'Prefer a local secret? Wills Domain has "the best view from a restaurant in the region" plus a cellar door — or seek out smaller makers locals love: Pierro, Deep Woods, Windows Estate, Stormflower, or dog-friendly Cape Naturaliste.',
+        flags:['book:Reserve for lunch','cost:Mid–premium','🍇 Less-exported wines'],
+        why:'A Perth local\'s steer: these pour wines you\'re less likely to find outside WA — a more off-the-track alternative to the flagship Vasse Felix lunch.',
+        mapq:'Wills Domain Winery',
+        added:true, chg:'Added a local\'s alternative to the Vasse Felix lunch — Wills Domain (best views) or smaller insider cellar doors.'},
+      {t:'Afternoon', ic:'🍫', title:'Quick stop: Margaret River Chocolate Co', blurb:'A short, fun detour for free chocolate tastings on the way back (the driver\'s reward).',
+        flags:['time:30 min','cost:Free'],
+        why:'One gourmet stop, not a crawl — keeps the day light.',
+        mapq:'Margaret River Chocolate Company'},
+      {t:'Late afternoon', ic:'🥾', title:'Optional: Ten Mile Brook Dam trail', blurb:'A peaceful walk or easy ride from town out to the dam through the bush.',
+        flags:['time:1–1.5 hrs','🥾 ~7 km return'],
+        why:'A gentle stretch if you\'re keen — or save your legs for a fireside evening.',
+        mapq:'Ten Mile Brook Dam'},
+      {t:'Evening', ic:'🍽️', title:'Dinner in town — Miki\'s Open Kitchen', blurb:'Refined Japanese with a tempura counter — a local favourite that books out.',
+        flags:['book:Reserve well ahead'],
+        why:'A genuine highlight meal — lock it in early.',
+        mapq:"Miki's Open Kitchen Margaret River"},
     ]
   },
   {
@@ -431,9 +435,9 @@ function overviewHTML(){
     <ul>
       <li><b>Day 1</b> — Land Perth, Claisebrook Cove parkrun, collect the car, drive south (Busselton Jetty)</li>
       <li><b>Day 2</b> — Augusta whale cruise 🐋 (booked 10:15), Cape Leeuwin lighthouse &amp; foreshore</li>
-      <li><b>Day 3</b> — Cycle the rail-trail + one relaxed winery lunch</li>
-      <li><b>Day 4</b> — Karri forest walking &amp; Lake Cave (the one cave)</li>
-      <li><b>Day 5</b> — Cape to Cape clifftop hiking (Sugarloaf, Meelup) 🥂 <i>celebration dinner</i></li>
+      <li><b>Day 3</b> — Karri forest walking &amp; Lake Cave (the one cave)</li>
+      <li><b>Day 4</b> — Cape to Cape clifftop hiking (Sugarloaf, Meelup) 🥂 <i>celebration dinner</i></li>
+      <li><b>Day 5</b> — Cycle the rail-trail + one relaxed winery lunch ⚽ <i>WC semi (3am)</i></li>
       <li><b>Day 6</b> — Surf or kayak, rivermouth walk &amp; spa afternoon</li>
       <li><b>Day 7</b> — Final walk, drive back to Perth</li>
     </ul>
@@ -513,9 +517,9 @@ const PACKING = [
   'Insulated flask for hot drinks on the coast','Power adapter (AU Type I)','Cooler bag for cheese, chocolate & wine souvenirs'
 ];
 const BOOKING = [
-  'Rental car — Apex, Mitsubishi Outlander (pickup 10:30 Sat)','Parmelia Hilton, Perth (Fri night, Stef & Bell)','Augusta whale-watching cruise (Day 5)',
-  'Celebration dinner (Cape Lodge / Leeuwin / Arimia)','Miki\'s Open Kitchen (Day 3 — books out)','Lake Cave guided tour (Day 4)',
-  'Bike hire for the Wadandi Track (Day 3)','Surf lesson or kayak hire (Day 6)','Spa treatment (Day 6)','Vasse Felix winery lunch (Day 3)'
+  'Rental car — Apex, Mitsubishi Outlander (pickup 10:30 Sat)','Parmelia Hilton, Perth (Fri night, Stef & Bell)','Augusta Whale Watching cruise (Day 2 — ✅ booked)',
+  'Celebration dinner (Cape Lodge / Leeuwin / Arimia — Day 4)','Miki\'s Open Kitchen (Day 5 — books out)','Lake Cave guided tour (Day 3)',
+  'Bike hire for the Wadandi Track (Day 5)','Surf lesson or kayak hire (Day 6)','Spa treatment (Day 6)','Vasse Felix winery lunch (Day 5)'
 ];
 
 // ════════════════════════════════════════════════
